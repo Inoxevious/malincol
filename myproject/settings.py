@@ -26,7 +26,7 @@ SECRET_KEY = 'f!c2w8okg1mz_=bq!ksnp$7udqb$np%vpm323pja^$-0xn1gf)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.243.37.216','malincollection.co.zw']
+ALLOWED_HOSTS = ['104.243.37.216','malincollection.co.zw', '127.0.0.1']
 
 
 # Application definition
@@ -34,6 +34,8 @@ ALLOWED_HOSTS = ['104.243.37.216','malincollection.co.zw']
 INSTALLED_APPS = [
     'django.contrib.admin',
     'malin',
+    'chatbot',
+    'products',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -56,7 +58,7 @@ ROOT_URLCONF = 'myproject.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,9 +80,9 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.contrib.gis.db.backends.postgis', #''django.db.backends.postgresql_psycopg2',  #'django.db.backends.mysql',
-        'NAME': 'malingis_db',
-        'USER': 'postgis_inno',
-        'PASSWORD': 'Malin@1#',
+        'NAME': 'mydb',
+        'USER': 'admin',
+        'PASSWORD': 'malin@1#',
         'HOST': 'localhost',
         'PORT': 5432,
         'CONN_MAX_AGE': 5, 
@@ -125,4 +127,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+# STATIC_ROOT = 'static'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
