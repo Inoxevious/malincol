@@ -26,7 +26,7 @@ SECRET_KEY = 'f!c2w8okg1mz_=bq!ksnp$7udqb$np%vpm323pja^$-0xn1gf)'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['104.243.37.216','malincollection.co.zw', '127.0.0.1']
+ALLOWED_HOSTS = ['104.243.37.216','malincollection.co.zw', '127.0.0.1', '23c348033490.ngrok.io']
 
 
 # Application definition
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'malin',
     'chatbot',
     'products',
+    'cart',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -127,7 +128,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-# STATIC_ROOT = 'static'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

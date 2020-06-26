@@ -4,7 +4,6 @@ from django.conf import settings
 from products.models import Product
 from django.db.models import Q
 from django.conf import settings
-
 from cart.cart import Cart
 from paynow import Paynow
 from .models import PaynowPayment
@@ -102,7 +101,7 @@ You can give me the following commands:
                             name = prod.name
                             price = prod.unit_price
                             prod_id = prod.id
-                            # vendor = prod.vendor_id.username
+                            vendor = prod.vendor_id.username
                             # price_count = recipe_data['pricecount']
                             # prep = recipe_data['prep']
                             # cook = recipe_data['cook']
@@ -141,7 +140,7 @@ Manufacturer: {}
                             name = prod.name
                             price = prod.unit_price
                             prod_id = prod.id
-                            # vendor = prod.vendor_id.username
+                            vendor = prod.vendor_id.username
                             image = prod.image
                             # price_count = recipe_data['pricecount']
                             # prep = recipe_data['prep']
@@ -164,7 +163,7 @@ Manufacturer: {}
             # image = image.strip()
             # base = os.path.dirname(os.path.dirname(os.path.abspath(str(image))))
             site_url = '127.0.0.1'
-            image = os.path.join(site_url + '/mush_store', image.url)
+            image = os.path.join(site_url + '/malincol', image.url)
             msg.media(image)
             msg.body(result)
             responded = True
